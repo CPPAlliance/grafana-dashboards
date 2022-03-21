@@ -289,6 +289,20 @@
               "intervalFactor": 2,
               "legendFormat": "memory free",
               "refId": "D"
+            },
+            {
+              "expr": "node_memory_swap_used_bytes{job=\"node\", instance=\"$instance\"}",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "swap used",
+              "refId": "E"
+            },
+            {
+              "expr": "(\n  node_memory_swap_total_bytes{job=\"node\", instance=\"$instance\"}\n-\n  node_memory_swap_used_bytes{job=\"node\", instance=\"$instance\"}\n)\n",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "swap free",
+              "refId": "F"
             }
           ],
           "thresholds": [],
